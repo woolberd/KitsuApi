@@ -2,6 +2,7 @@ package com.example.kitsuapi.ui.fragments.manga
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
@@ -16,7 +17,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
 
     override val binding by viewBinding(FragmentMangaBinding::bind)
     override val viewModel: MangaViewModel by viewModels()
-    private val mangaAdapter = MangaAdapter()
+    private val mangaAdapter = MangaAdapter(this::onItemClick)
 
     override fun initialize() {
         binding.mangaRecView.apply {
@@ -40,5 +41,11 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
                 }
             }
         }
+    }
+
+    private fun onItemClick(id: String) {
+        findNavController().navigate(
+            MangaFragmentDirections.actionMangaFragmentToMangaDetailFragment(id)
+        )
     }
 }

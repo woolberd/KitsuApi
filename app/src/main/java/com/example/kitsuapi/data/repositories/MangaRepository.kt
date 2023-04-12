@@ -17,4 +17,13 @@ class MangaRepository @Inject constructor(
             emit(Resource.Error(exception.localizedMessage ?: "Error", null))
         }
     }
+
+    fun fetchDetailManga(id: String) = liveData {
+        emit(Resource.Loading())
+        try {
+            emit(Resource.Success(mangaApiService.fetchDetailManga(id)))
+        }catch (exception: Exception){
+            emit(Resource.Error(exception.localizedMessage ?: "Error", null))
+        }
+    }
 }

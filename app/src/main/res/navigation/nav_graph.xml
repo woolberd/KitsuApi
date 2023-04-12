@@ -9,7 +9,11 @@
         android:id="@+id/animeFragment"
         android:name="com.example.kitsuapi.ui.fragments.anime.AnimeFragment"
         android:label="fragment_anime"
-        tools:layout="@layout/fragment_anime" />
+        tools:layout="@layout/fragment_anime" >
+        <action
+            android:id="@+id/action_animeFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/mangaFragment"
@@ -17,8 +21,28 @@
         android:label="fragment_manga"
         tools:layout="@layout/fragment_manga">
         <action
-            android:id="@+id/action_mangaFragment_to_animeFragment"
-            app:destination="@id/animeFragment" />
+            android:id="@+id/action_mangaFragment_to_mangaDetailFragment"
+            app:destination="@id/mangaDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/animeDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment"
+        android:label="fragment_anime_detail"
+        tools:layout="@layout/fragment_anime_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mangaDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragment"
+        android:label="fragment_manga_detail"
+        tools:layout="@layout/fragment_manga_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
 
 </navigation>

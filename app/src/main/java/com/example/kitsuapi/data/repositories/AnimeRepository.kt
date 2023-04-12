@@ -16,4 +16,13 @@ class AnimeRepository @Inject constructor(
              emit(Resource.Error(exception.localizedMessage ?: "Error", null))
          }
      }
+
+    fun fetchDetailAnime(id: String) = liveData {
+        emit(Resource.Loading())
+        try {
+            emit(Resource.Success(animeApiService.fetchDetailAnime(id)))
+        }catch (exception: Exception){
+            emit(Resource.Error(exception.localizedMessage ?: "Error", null))
+        }
+    }
 }

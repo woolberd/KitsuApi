@@ -9,11 +9,22 @@ import com.example.kitsuapi.base.BaseDiffUtilItemCallback
 import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.model.DataItem
 
-class AnimeAdapter : ListAdapter<DataItem, AnimeAdapter.AnimeViewHolder>(
+class AnimeAdapter(
+    val onItemClick: (id : String) -> Unit
+) : ListAdapter<DataItem, AnimeAdapter.AnimeViewHolder>(
     BaseDiffUtilItemCallback()
 ) {
     inner class AnimeViewHolder(private val binding: ItemKitsuBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.let { it1 ->
+                    onItemClick(it1.id)
+                }
+            }
+        }
+
         fun onBind(attributes: DataItem) {
             binding.tvKitsu.text = attributes.attributes.titles.enJp
             Glide.with(binding.imageKitsu).load(attributes.attributes.posterImage.original)

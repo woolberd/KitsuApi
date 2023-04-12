@@ -19,14 +19,15 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/data"
         android:background="#F7512D39"
+        app:layout_constraintBottom_toTopOf="@id/view_pager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabGravity="center"
         app:tabIndicatorColor="#03FF5722"
-        app:tabMode="scrollable" />
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="#FF5722"
+        app:tabTextAppearance="@style/textCaps" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
