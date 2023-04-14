@@ -2,6 +2,7 @@ package com.example.kitsuapi.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,8 +11,8 @@ import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.model.DataItem
 
 class AnimeAdapter(
-    val onItemClick: (id : String) -> Unit
-) : ListAdapter<DataItem, AnimeAdapter.AnimeViewHolder>(
+    val onItemClick: (id: String) -> Unit
+) : PagingDataAdapter<DataItem, AnimeAdapter.AnimeViewHolder>(
     BaseDiffUtilItemCallback()
 ) {
     inner class AnimeViewHolder(private val binding: ItemKitsuBinding) :
@@ -19,9 +20,7 @@ class AnimeAdapter(
 
         init {
             itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition)?.let { it1 ->
-                    onItemClick(it1.id)
-                }
+                getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1.id) }
             }
         }
 
@@ -39,6 +38,6 @@ class AnimeAdapter(
     }
 
     override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        getItem(position)?.let { holder.onBind(it) }
     }
 }

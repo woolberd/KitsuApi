@@ -1,28 +1,23 @@
 package com.example.kitsuapi.data.repositories
 
-import androidx.lifecycle.liveData
-import com.example.kitsuapi.Resource
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.liveData
+import com.example.kitsuapi.base.BaseRepository
 import com.example.kitsuapi.data.remote.apiiservices.AnimeApiService
+import com.example.kitsuapi.data.repositories.pagingsource.AnimePagingSource
 import javax.inject.Inject
 
 class AnimeRepository @Inject constructor(
     private val animeApiService: AnimeApiService
-){
-     fun fetchAnime() = liveData {
-         emit(Resource.Loading())
-         try {
-             emit(Resource.Success(animeApiService.fetchAnime()))
-         }catch (exception: Exception){
-             emit(Resource.Error(exception.localizedMessage ?: "Error", null))
-         }
-     }
+) : BaseRepository(){
+    fun fetchAnime() = Pager(
+        PagingConfig(pageSize = 20, initialLoadSize = 10)
+    ) {
+        AnimePagingSource(animeApiService)
+    }.liveData
 
-    fun fetchDetailAnime(id: String) = liveData {
-        emit(Resource.Loading())
-        try {
-            emit(Resource.Success(animeApiService.fetchDetailAnime(id)))
-        }catch (exception: Exception){
-            emit(Resource.Error(exception.localizedMessage ?: "Error", null))
-        }
+    fun fetchDetailAnime(id: String) = doRequest {
+        animeApiService.fetchDetailAnime(id)
     }
 }

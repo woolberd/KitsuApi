@@ -2,6 +2,7 @@ package com.example.kitsuapi.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,8 +11,8 @@ import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.model.DataItem
 
 class MangaAdapter(
-    val onItemClick: (id : String) -> Unit
-) : ListAdapter<DataItem, MangaAdapter.MangaViewHolder>(
+    val onItemClick: (id: String) -> Unit
+) : PagingDataAdapter<DataItem, MangaAdapter.MangaViewHolder>(
     BaseDiffUtilItemCallback()
 ) {
     inner class MangaViewHolder(private val binding: ItemKitsuBinding) :
@@ -27,6 +28,7 @@ class MangaAdapter(
             binding.tvKitsu.text = attributes.attributes.titles.enJp
             Glide.with(binding.imageKitsu).load(attributes.attributes.posterImage.original)
                 .into(binding.imageKitsu)
+
         }
     }
 
@@ -37,6 +39,6 @@ class MangaAdapter(
     }
 
     override fun onBindViewHolder(holder: MangaViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        getItem(position)?.let { holder.onBind(it) }
     }
 }

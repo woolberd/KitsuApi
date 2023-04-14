@@ -6,14 +6,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.kitsuapi.ui.fragments.anime.AnimeFragment
 import com.example.kitsuapi.ui.fragments.manga.MangaFragment
 
-class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: androidx.lifecycle.Lifecycle) :
-    FragmentStateAdapter(fragmentManager, lifecycle) {
+class ViewPagerAdapter(fragment: Fragment) :
+    FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> MangaFragment()
-            1 -> AnimeFragment()
+            0 -> AnimeFragment()
+            1 -> MangaFragment()
             else -> MangaFragment()
         }
     }
