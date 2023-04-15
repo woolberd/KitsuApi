@@ -26,4 +26,6 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
     protected open fun setupListener() {}
 
     protected open fun setupObserves() {}
+
+    protected open fun setupSubscribes() {}
 }
