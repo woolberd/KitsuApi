@@ -13,7 +13,7 @@ import com.example.kitsuapi.extension.setImage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MangaDetailFragment: BaseFragment<FragmentMangaDetailBinding, MangaDetailViewModel>
+class MangaDetailFragment : BaseFragment<FragmentMangaDetailBinding, MangaDetailViewModel>
     (R.layout.fragment_manga_detail) {
 
     override val binding by viewBinding(FragmentMangaDetailBinding::bind)

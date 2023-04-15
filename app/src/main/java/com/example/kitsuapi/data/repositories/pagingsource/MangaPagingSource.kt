@@ -1,10 +1,7 @@
 package com.example.kitsuapi.data.repositories.pagingsource
 
 import android.net.Uri
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
 import com.example.kitsuapi.base.BasePagingSource
-import com.example.kitsuapi.data.remote.apiiservices.AnimeApiService
 import com.example.kitsuapi.data.remote.apiiservices.MangaApiService
 import com.example.kitsuapi.model.DataItem
 
