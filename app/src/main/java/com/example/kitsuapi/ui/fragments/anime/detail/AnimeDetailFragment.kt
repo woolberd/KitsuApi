@@ -29,7 +29,6 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
                 }
                 is Resource.Loading -> {
                     binding.progressBar.isInvisible = false
-                    Toast.makeText(requireContext(), "no", Toast.LENGTH_SHORT).show()
                 }
                 is Resource.Success -> {
                     it.data.let { anime ->

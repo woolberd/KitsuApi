@@ -25,6 +25,7 @@
         android:layout_marginTop="15dp"
         android:textColor="@color/white"
         android:textSize="23sp"
+        android:gravity="center|bottom"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@id/anime_detail_image"
         app:layout_constraintStart_toStartOf="@id/anime_detail_image"
