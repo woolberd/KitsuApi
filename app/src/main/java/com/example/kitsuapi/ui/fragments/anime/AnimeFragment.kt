@@ -25,7 +25,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
         }
     }
 
-    override fun setupObserves() {
+    override fun setupSubscribes() {
         viewModel.fetchAnime().observe(viewLifecycleOwner) {
             lifecycleScope.launch {
                 animeAdapter.submitData(it)

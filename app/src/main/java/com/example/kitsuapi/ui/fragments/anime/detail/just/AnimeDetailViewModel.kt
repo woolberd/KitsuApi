@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.anime.detail
+package com.example.kitsuapi.ui.fragments.anime.detail.just
 
 import androidx.lifecycle.ViewModel
 import com.example.kitsuapi.data.repositories.AnimeRepository

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/animeDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.anime.detail.just.AnimeDetailFragment"
         android:label="fragment_anime_detail"
         tools:layout="@layout/fragment_anime_detail">
         <argument
@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/mangaDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.manga.detail.just.MangaDetailFragment"
         android:label="fragment_manga_detail"
         tools:layout="@layout/fragment_manga_detail">
         <argument

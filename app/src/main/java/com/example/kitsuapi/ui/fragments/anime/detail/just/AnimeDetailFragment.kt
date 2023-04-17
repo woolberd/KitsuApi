@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.anime.detail
+package com.example.kitsuapi.ui.fragments.anime.detail.just
 
 import android.widget.Toast
 import androidx.core.view.isInvisible
@@ -10,6 +10,7 @@ import com.example.kitsuapi.utils.Resource
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentAnimeDetailBinding
 import com.example.kitsuapi.extension.setImage
+import com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +21,7 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
     override val viewModel: AnimeDetailViewModel by viewModels()
     private val args: AnimeDetailFragmentArgs by navArgs()
 
-    override fun setupObserves() {
+    override fun setupSubscribes() {
         viewModel.fetchDetailAnime(args.id).observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {

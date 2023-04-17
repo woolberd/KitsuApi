@@ -25,7 +25,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
         }
     }
 
-    override fun setupObserves() {
+    override fun setupSubscribes() {
         viewModel.fetchManga().observe(viewLifecycleOwner) {
             lifecycleScope.launch {
                 mangaAdapter.submitData(it)

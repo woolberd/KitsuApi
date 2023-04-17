@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#472832"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragment">
+    tools:context="com.example.kitsuapi.ui.fragments.manga.detail.just.MangaDetailFragment">
 
     <ImageView
         android:id="@+id/manga_detail_image"
