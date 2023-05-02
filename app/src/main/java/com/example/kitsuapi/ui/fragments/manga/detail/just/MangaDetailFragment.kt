@@ -6,11 +6,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
-import com.example.kitsuapi.utils.Resource
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentMangaDetailBinding
 import com.example.kitsuapi.extension.setImage
-import com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragmentArgs
+import com.example.kitsuapi.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
