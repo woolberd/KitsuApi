@@ -8,7 +8,7 @@ import com.example.kitsuapi.R
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentMangaBinding
 import com.example.kitsuapi.ui.adapter.MangaAdapter
-import com.example.kitsuapi.ui.fragments.home.HomeFragmentDirections
+import com.example.kitsuapi.ui.fragments.viewpager.ViewPagerFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,6 +26,10 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
     }
 
     override fun setupSubscribes() {
+        subscribeToFetchManga()
+    }
+
+    private fun subscribeToFetchManga() {
         viewModel.fetchManga().observe(viewLifecycleOwner) {
             lifecycleScope.launch {
                 mangaAdapter.submitData(it)
@@ -35,7 +39,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
 
     private fun onItemClick(id: String) {
         findNavController().navigate(
-            HomeFragmentDirections.actionHomeFragmentToMangaDetailFragment(id)
+            ViewPagerFragmentDirections.actionViewPagerFragmentToMangaDetailFragment(id)
         )
     }
 }

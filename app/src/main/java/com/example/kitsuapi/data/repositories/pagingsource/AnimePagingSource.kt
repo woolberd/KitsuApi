@@ -3,7 +3,7 @@ package com.example.kitsuapi.data.repositories.pagingsource
 import android.net.Uri
 import com.example.kitsuapi.base.BasePagingSource
 import com.example.kitsuapi.data.remote.apiiservices.AnimeApiService
-import com.example.kitsuapi.model.DataItem
+import com.example.kitsuapi.models.DataItem
 
 private const val MANGA_PAGE = 1
 

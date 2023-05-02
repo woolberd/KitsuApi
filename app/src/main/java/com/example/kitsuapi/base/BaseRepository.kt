@@ -2,6 +2,7 @@ package com.example.kitsuapi.base
 
 import androidx.lifecycle.liveData
 import com.example.kitsuapi.utils.Resource
+import kotlinx.coroutines.flow.flow
 
 abstract class BaseRepository {
 

@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.kitsuapi"
-        minSdk = 26
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -40,18 +40,18 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildFeatures {
         //ViewBinding
         viewBinding = true
     }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
-
+    implementation ("androidx.fragment:fragment-ktx:1.5.7")
     // Core
     implementation("androidx.core:core-ktx:1.10.0")
 
@@ -112,4 +112,10 @@ dependencies {
     val paging_version = "3.1.1"
     //noinspection GradleDependency
     implementation ("androidx.paging:paging-runtime:$paging_version")
+
+    //material components
+    implementation ("com.google.android.material:material:<version>")
+
+    implementation ("androidx.recyclerview:recyclerview:1.3.0")
+    implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
 }

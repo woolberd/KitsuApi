@@ -1,44 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#472832"
-    tools:context="com.example.kitsuapi.ui.fragments.anime.detail.just.AnimeDetailFragment">
+    android:background="@color/white"
+    tools:context="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment">
 
-    <ImageView
-        android:id="@+id/anime_detail_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="15dp"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:elevation="10dp"
+        android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/anime_detail_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:gravity="center|bottom"
-        android:textColor="@color/white"
-        android:textSize="23sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@id/anime_detail_image"
-        app:layout_constraintStart_toStartOf="@id/anime_detail_image"
-        app:layout_constraintTop_toBottomOf="@id/anime_detail_image" />
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/background_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="16dp"
+                    android:drawableStart="@drawable/baseline_arrow_back_ios_24"
+                    android:text="@string/back"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_begin_tb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="130dp" />
+
+                <TextView
+                    android:id="@+id/anime_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_marginStart="9dp"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/gl_begin_tb"
+                    tools:text="One piece" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="9dp"
+                    android:text="@string/tv_183"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@id/anime_name"
+                    app:layout_constraintStart_toEndOf="@id/gl_begin_tb" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="9dp"
+                    android:text="@string/_1999"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@id/anime_name"
+                    app:layout_constraintStart_toEndOf="@id/tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_scroll_begin_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="130dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_library"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#029190"
+                android:text="@string/add_to_library"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="7dp"
+                app:layout_constraintStart_toEndOf="@id/gl_scroll_begin_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/baseline_more_vert_24"
+                app:layout_constraintStart_toEndOf="@id/btn_add_library"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_poster_text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="100dp" />
+
+            <TextView
+                android:id="@+id/scroll_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:scrollHorizontally="true"
+                android:singleLine="false"
+                android:text="INTRODUCTIONKitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans.With the Kitsu API you can do everything the client can do and much more.Base API path: https://kitsu.io/api/edgeJSON:APIThe Kitsu API implements the JSON:API specification. This means there are some notable semantics to how you consume it, but understanding it will take a lot of the work of using it out of your hands."
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gl_poster_text_margin" />
+
+            <TextView
+                android:id="@+id/tv_view_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/view_more"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scroll_text" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_percent"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="9dp"
+                app:cardElevation="8dp"
+                app:layout_constraintStart_toStartOf="@id/tv_view_more"
+                app:layout_constraintTop_toBottomOf="@id/tv_view_more">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:text="@string/kitsu_score"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/_83"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_scroll_top_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="200dp" />
+
+            <TextView
+                android:id="@+id/rank_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@string/rank"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/card_percent"
+                app:layout_constraintTop_toBottomOf="@id/gl_scroll_top_view" />
+
+            <TextView
+                android:id="@+id/rank_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:text="@string/rank2"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/card_percent"
+                app:layout_constraintTop_toBottomOf="@id/rank_star" />
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/rating"
+                app:layout_constraintStart_toEndOf="@id/rank_star"
+                app:layout_constraintTop_toBottomOf="@id/gl_scroll_top_view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="6dp"
+                android:text="@string/popularity"
+                app:layout_constraintStart_toEndOf="@id/rank_heart"
+                app:layout_constraintTop_toBottomOf="@id/tv_rating" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_scroll_top2_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="270dp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gl_scroll_top2_view"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#DC5959"
+                    android:text="@string/pirate"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF9800"
+                    android:text="@string/slavery"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#6ABA6D"
+                    android:text="@string/action"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4AAAB6"
+                    android:text="@string/fantasy_world"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#A889DF"
+                    android:text="@string/asia"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="bottom"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/anime_episode_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    tools:listitem="@layout/item_episode"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/white"
+        app:cardCornerRadius="22dp"
+        app:layout_anchor="@id/main.appbar"
+        app:layout_anchorGravity="bottom">
+
+        <ImageView
+            android:id="@+id/anime_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+    </androidx.cardview.widget.CardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kitsuapi.base.BaseDiffUtilItemCallback
 import com.example.kitsuapi.databinding.ItemKitsuBinding
-import com.example.kitsuapi.model.DataItem
+import com.example.kitsuapi.models.DataItem
 
 class MangaAdapter(
     val onItemClick: (id: String) -> Unit

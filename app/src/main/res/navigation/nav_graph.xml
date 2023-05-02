@@ -2,39 +2,23 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/mainFlowFragment">
 
     <fragment
-        android:id="@+id/animeDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.anime.detail.just.AnimeDetailFragment"
-        android:label="fragment_anime_detail"
-        tools:layout="@layout/fragment_anime_detail">
-        <argument
-            android:name="id"
-            app:argType="string" />
-    </fragment>
-
+        android:id="@+id/mainFlowFragment"
+        android:name="com.example.kitsuapi.ui.fragments.main.flow.MainFlowFragment"
+        android:label="fragment_main_flow"
+        tools:layout="@layout/fragment_main_flow" />
     <fragment
-        android:id="@+id/mangaDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.manga.detail.just.MangaDetailFragment"
-        android:label="fragment_manga_detail"
-        tools:layout="@layout/fragment_manga_detail">
-        <argument
-            android:name="id"
-            app:argType="string" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.kitsuapi.ui.fragments.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home">
+        android:id="@+id/signFlowFragment"
+        android:name="com.example.kitsuapi.ui.fragments.sign.flow.SignFlowFragment"
+        android:label="fragment_sign_flow"
+        tools:layout="@layout/fragment_sign_flow" >
         <action
-            android:id="@+id/action_homeFragment_to_mangaDetailFragment"
-            app:destination="@id/mangaDetailFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_animeDetailFragment"
-            app:destination="@id/animeDetailFragment" />
+            android:id="@+id/action_signFlowFragment_to_mainFlowFragment"
+            app:destination="@id/mainFlowFragment"/>
+<!--            app:popUpTo="@id/signFlowFragment"-->
+<!--            app:popUpToInclusive="true"-->
     </fragment>
 
 </navigation>

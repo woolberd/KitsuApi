@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@id/viewPagerFragment">
+
+    <fragment
+        android:id="@+id/animeDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment"
+        android:label="fragment_anime_detail"
+        tools:layout="@layout/fragment_anime_detail">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mangaDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragment"
+        android:label="fragment_manga_detail"
+        tools:layout="@layout/fragment_manga_detail">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.kitsuapi.ui.fragments.viewpager.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_mangaDetailFragment"
+            app:destination="@id/mangaDetailFragment" />
+    </fragment>
+</navigation>
