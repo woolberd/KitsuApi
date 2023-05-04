@@ -22,7 +22,7 @@ class AnimeRepository @Inject constructor(
         PagingConfig(pageSize = 20, initialLoadSize = 10)
     ) {
         AnimePagingSource(animeApiService)
-    }.liveData
+    }.flow
 
     fun fetchDetailAnime(id: String) = doRequest {
         animeApiService.fetchDetailAnime(id)

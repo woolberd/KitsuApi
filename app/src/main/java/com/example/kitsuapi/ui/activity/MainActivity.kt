@@ -1,10 +1,10 @@
 package com.example.kitsuapi.ui.activity
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
 import com.example.kitsuapi.data.local.preferences.PreferencesData
 import com.example.kitsuapi.databinding.ActivityMainBinding
@@ -17,13 +17,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     @Inject
     lateinit var preferencesData: PreferencesData
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding by viewBinding(ActivityMainBinding::bind)
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         setupNavigation()
     }
 

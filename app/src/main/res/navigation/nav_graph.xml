@@ -16,9 +16,9 @@
         tools:layout="@layout/fragment_sign_flow" >
         <action
             android:id="@+id/action_signFlowFragment_to_mainFlowFragment"
-            app:destination="@id/mainFlowFragment"/>
-<!--            app:popUpTo="@id/signFlowFragment"-->
-<!--            app:popUpToInclusive="true"-->
+            app:destination="@id/mainFlowFragment"
+            app:popUpTo="@id/signFlowFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
 </navigation>

@@ -20,4 +20,7 @@
     <string name="_83">83%</string>
     <string name="asia">Asia</string>
     <string name="episode_lenght">episode lenght:</string>
+    <string name="nickname">Nickname</string>
+    <string name="password">Password</string>
+    <string name="authorize">authorize</string>
 </resources>

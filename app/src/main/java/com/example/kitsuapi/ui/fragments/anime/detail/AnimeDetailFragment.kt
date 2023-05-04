@@ -1,11 +1,9 @@
 package com.example.kitsuapi.ui.fragments.anime.detail
 
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
-import com.example.kitsuapi.utils.Resource
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentAnimeDetailBinding
 import com.example.kitsuapi.extension.setImage
@@ -33,22 +31,33 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
     }
 
     private fun subscribeToFetchDetailAnime() {
-        viewModel.fetchDetailAnime(args.id).observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Error -> {
-                    Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-                }
-                is Resource.Loading -> {}
-                is Resource.Success -> {
-                    it.data.let { anime ->
-                        binding.animeName.text = anime!!.data.attributes.titles.enJp
-                        binding.animeImageView.setImage(anime.data.attributes.posterImage.original)
-                        binding.backgroundImg.setImage(anime.data.attributes.posterImage.large)
-                        Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
-                    }
+
+        viewModel.fetchDetailAnime(args.id).subscribe(
+            onError = {},
+            onSuccess = { it ->
+                it.data.let {
+                    binding.animeName.text = it.attributes.titles.enJp
+                    binding.animeImageView.setImage(it.attributes.posterImage.original)
+                    binding.backgroundImg.setImage(it.attributes.posterImage.large)
                 }
             }
-        }
+        )
+//        viewModel.fetchDetailAnime(args.id).observe(viewLifecycleOwner) {
+//            when (it) {
+//                is Resource.Error -> {
+//                    Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+//                }
+//                is Resource.Loading -> {}
+//                is Resource.Success -> {
+//                    it.data.let { anime ->
+//                        binding.animeName.text = anime!!.data.attributes.titles.enJp
+//                        binding.animeImageView.setImage(anime.data.attributes.posterImage.original)
+//                        binding.backgroundImg.setImage(anime.data.attributes.posterImage.large)
+//                        Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//            }
+//        }
     }
 
     private fun subscribeToFetchEpisodes() {

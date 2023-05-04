@@ -3,7 +3,6 @@ package com.example.kitsuapi.di
 import android.content.Context
 import com.example.kitsuapi.data.local.preferences.PreferencesData
 import com.example.kitsuapi.data.local.preferences.PreferencesHelper
-import com.example.kitsuapi.data.remote.RetrofitClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,9 +15,6 @@ import javax.inject.Singleton
 object PreferencesModule {
 
     @Singleton
-    val retrofitClient = RetrofitClient()
-
-    @Singleton
     @Provides
     fun providePreferencesHelper(
         @ApplicationContext context: Context
@@ -28,8 +24,4 @@ object PreferencesModule {
     @Provides
     fun providePreferenceData(preferencesHelper: PreferencesHelper) =
         PreferencesData(preferencesHelper)
-
-    @Singleton
-    @Provides
-    fun providerSignInApiService() = retrofitClient.providerSignInApiService()
 }

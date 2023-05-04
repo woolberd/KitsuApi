@@ -28,8 +28,8 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     }
 
     private fun subscribeToFetchAnime() {
-        viewModel.fetchAnime().observe(viewLifecycleOwner) {
-            lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.fetchAnime().collect {
                 animeAdapter.submitData(it)
             }
         }
