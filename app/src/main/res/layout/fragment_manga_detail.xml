@@ -146,10 +146,10 @@
                 android:maxLines="4"
                 android:scrollHorizontally="true"
                 android:singleLine="false"
-                android:text="INTRODUCTIONKitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans.With the Kitsu API you can do everything the client can do and much more.Base API path: https://kitsu.io/api/edgeJSON:APIThe Kitsu API implements the JSON:API specification. This means there are some notable semantics to how you consume it, but understanding it will take a lot of the work of using it out of your hands."
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gl_poster_text_margin" />
+                app:layout_constraintTop_toBottomOf="@id/gl_poster_text_margin"
+                tools:text="INTRODUCTIONKitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans.With the Kitsu API you can do everything the client can do and much more.Base API path: https://kitsu.io/api/edgeJSON:APIThe Kitsu API implements the JSON:API specification. This means there are some notable semantics to how you consume it, but understanding it will take a lot of the work of using it out of your hands." />
 
             <TextView
                 android:id="@+id/tv_view_more"
@@ -309,8 +309,9 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:layout_marginTop="15dp"
+                android:background="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/chip_group_status">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -330,28 +331,16 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tv_studios"
+                        android:id="@+id/tv_chapters"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
-                        android:text="@string/studios"
+                        android:text="@string/chapters"
                         android:textColor="#BA424040"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_details" />
-
-                    <TextView
-                        android:id="@+id/tv_episodes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:text="@string/episodes"
-                        android:textColor="#BA424040"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_studios" />
 
                     <TextView
                         android:id="@+id/tv_status"
@@ -363,7 +352,7 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_episodes" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_chapters" />
 
                     <TextView
                         android:id="@+id/tv_premiered"
@@ -396,7 +385,7 @@
                         android:layout_height="1sp"
                         android:layout_marginTop="8dp"
                         android:background="#455E5C5C"
-                        app:layout_constraintTop_toBottomOf="@id/tv_episodes"
+                        app:layout_constraintTop_toBottomOf="@id/tv_chapters"
                         tools:ignore="SmallSp" />
 
                     <View
@@ -418,15 +407,6 @@
                         tools:ignore="SmallSp" />
 
                     <View
-                        android:id="@+id/view_studios"
-                        android:layout_width="match_parent"
-                        android:layout_height="1sp"
-                        android:layout_marginTop="8dp"
-                        android:background="#455E5C5C"
-                        app:layout_constraintTop_toBottomOf="@id/tv_studios"
-                        tools:ignore="SmallSp" />
-
-                    <View
                         android:id="@+id/view_age_rating"
                         android:layout_width="match_parent"
                         android:layout_height="1sp"
@@ -440,7 +420,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_end="281dp" />
+                        app:layout_constraintGuide_end="230dp" />
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/gl_card_begin"
@@ -450,59 +430,52 @@
                         app:layout_constraintGuide_begin="40dp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="9dp"
-                        android:text="@string/tms_entertainment_tms_entertainment"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
-                        app:layout_constraintTop_toBottomOf="@id/gl_card_begin" />
-
-                    <TextView
+                        android:id="@+id/chapters_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="@string/tbd"
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
-                        app:layout_constraintTop_toBottomOf="@id/view_studios" />
+                        app:layout_constraintTop_toBottomOf="@id/gl_card_begin"
+                        tools:text="@string/tbd" />
 
                     <TextView
+                        android:id="@+id/manga_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="@string/currently_airing"
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
-                        app:layout_constraintTop_toBottomOf="@id/view_episodes" />
+                        app:layout_constraintTop_toBottomOf="@id/view_episodes"
+                        tools:text="@string/currently_airing" />
 
                     <TextView
+                        android:id="@+id/manga_premiered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="@string/jan_8_winter_1996"
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
-                        app:layout_constraintTop_toBottomOf="@id/view_status" />
+                        app:layout_constraintTop_toBottomOf="@id/view_status"
+                        tools:text="@string/jan_8_winter_1996" />
 
                     <TextView
+                        android:id="@+id/age_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="@string/pg_teens_13_or_older"
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
-                        app:layout_constraintTop_toBottomOf="@id/view_premiered" />
+                        app:layout_constraintTop_toBottomOf="@id/view_premiered"
+                        tools:text="@string/pg_teens_13_or_older" />
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -30,6 +30,11 @@ class MangaDetailFragment : BaseFragment<FragmentMangaDetailBinding, MangaDetail
                     binding.mangaName.text = it.attributes.titles.enJp
                     binding.mangaImageView.setImage(it.attributes.posterImage.original)
                     binding.backgroundImg.setImage(it.attributes.posterImage.large)
+                    binding.scrollText.text = it.attributes.synopsis
+                    binding.chaptersTv.text = it.attributes.chapterCount.toString()
+                    binding.mangaPremiered.text = it.attributes.createdAt
+                    binding.mangaStatus.text = it.attributes.status
+                    binding.ageRating.text = it.attributes.ageRating
                 }
             }
         )

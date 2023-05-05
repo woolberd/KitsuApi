@@ -39,6 +39,11 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
                     binding.animeName.text = it.attributes.titles.enJp
                     binding.animeImageView.setImage(it.attributes.posterImage.original)
                     binding.backgroundImg.setImage(it.attributes.posterImage.large)
+                    binding.ageRating.text = it.attributes.ageRating
+                    binding.animePremiered.text = it.attributes.createdAt
+                    binding.animeStatus.text = it.attributes.status
+                    binding.episodeNaming.text = it.attributes.episodeCount.toString()
+                    binding.scrollText.text = it.attributes.synopsis
                 }
             }
         )

@@ -53,4 +53,6 @@ data class Attributes(
     val startDate: String,
     @SerializedName("status")
     val status: String,
+    @SerializedName("chapterCount")
+    val chapterCount: Int
 )
