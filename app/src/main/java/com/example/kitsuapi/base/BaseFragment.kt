@@ -22,7 +22,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setupListener()
-        setupObserves()
+        setupRequests()
         setupSubscribes()
     }
 
@@ -30,7 +30,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
 
     protected open fun setupListener() {}
 
-    protected open fun setupObserves() {}
+    protected open fun setupRequests() {}
 
     protected open fun setupSubscribes() {}
 
