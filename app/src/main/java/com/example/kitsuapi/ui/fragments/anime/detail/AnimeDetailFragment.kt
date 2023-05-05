@@ -20,9 +20,9 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
     private val episodeDataAdapter = EpisodeDataAdapter()
 
     override fun initialize() {
-        binding.animeEpisodeRecycler.apply {
-            adapter = episodeDataAdapter
-        }
+//        binding.animeEpisodeRecycler.apply {
+//            adapter = episodeDataAdapter
+//        }
     }
 
     override fun setupSubscribes() {

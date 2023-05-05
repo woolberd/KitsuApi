@@ -23,4 +23,16 @@
     <string name="nickname">Nickname</string>
     <string name="password">Password</string>
     <string name="authorize">authorize</string>
+    <string name="view_more2">View More</string>
+    <string name="pg_teens_13_or_older">PG - Teens 13 or older</string>
+    <string name="jan_8_winter_1996">Jan 8, Winter 1996</string>
+    <string name="currently_airing">Currently Airing</string>
+    <string name="tbd">TBD</string>
+    <string name="tms_entertainment_tms_entertainment">TMS Entertainment, TMS Entertainment</string>
+    <string name="age_rating">Age Rating</string>
+    <string name="premiered">Premiered</string>
+    <string name="status">Status</string>
+    <string name="episodes">Episodes</string>
+    <string name="studios">Studios</string>
+    <string name="details">Details</string>
 </resources>

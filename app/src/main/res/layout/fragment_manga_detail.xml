@@ -291,21 +291,231 @@
 
             </com.google.android.material.chip.ChipGroup>
 
-            <LinearLayout
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:gravity="bottom"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/anime_episode_recycler"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                    app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/chip_group_status" />-->
+
+<!--            </LinearLayout>-->
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:gravity="bottom"
-                android:layout_height="match_parent">
+                android:layout_height="250dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/chip_group_status">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/anime_episode_recycler"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                    app:layout_constraintTop_toBottomOf="@id/chip_group_status" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_margin="15dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_studios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/studios"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#BA424040"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_details"
+                        android:layout_margin="15dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_episodes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/episodes"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#BA424040"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_studios"
+                        android:layout_margin="15dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#BA424040"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_episodes"
+                        android:layout_margin="15dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_premiered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/premiered"
+                        android:textColor="#BA424040"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_status" />
+
+                    <TextView
+                        android:id="@+id/tv_age_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/age_rating"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#BA424040"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_premiered"
+                        android:layout_margin="15dp"/>
+
+                    <View
+                        android:id="@+id/view_episodes"
+                        android:layout_width="match_parent"
+                        android:background="#455E5C5C"
+                        android:layout_height="1sp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_episodes"
+                        tools:ignore="SmallSp" />
+
+                    <View
+                        android:id="@+id/view_status"
+                        android:layout_width="match_parent"
+                        android:background="#455E5C5C"
+                        android:layout_height="1sp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_status"
+                        tools:ignore="SmallSp" />
+
+                    <View
+                        android:id="@+id/view_premiered"
+                        android:layout_width="match_parent"
+                        android:background="#455E5C5C"
+                        android:layout_height="1sp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_premiered"
+                        tools:ignore="SmallSp" />
+
+                    <View
+                        android:id="@+id/view_studios"
+                        android:layout_width="match_parent"
+                        android:background="#455E5C5C"
+                        android:layout_height="1sp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_studios"
+                        tools:ignore="SmallSp" />
+
+                    <View
+                        android:id="@+id/view_age_rating"
+                        android:layout_width="match_parent"
+                        android:background="#455E5C5C"
+                        android:layout_height="1sp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_age_rating"
+                        tools:ignore="SmallSp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_scroll_begin_view2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="281dp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_card_begin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="40dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tms_entertainment_tms_entertainment"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/gl_card_begin"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
+                        android:layout_marginTop="9dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tbd"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/view_studios"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
+                        android:layout_marginTop="7dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currently_airing"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/view_episodes"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
+                        android:layout_marginTop="7dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jan_8_winter_1996"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/view_status"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
+                        android:layout_marginTop="7dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pg_teens_13_or_older"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/view_premiered"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@id/gl_scroll_begin_view2"
+                        android:layout_marginTop="7dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/view_age_rating"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/view_more2"
+                        android:layout_marginTop="7dp"
+                        android:textColor="#BA424040"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
